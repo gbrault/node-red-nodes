@@ -1,0 +1,56 @@
+
+<script type="text/x-red" data-template-name="sqlitedb">
+    <div class="form-row">
+        <label for="node-config-input-db"><i class="fa fa-database"></i> Database</label>
+        <input type="text" id="node-config-input-db" placeholder="/tmp/sqlite">
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('sqljs',{
+        category: 'config',
+        defaults: {
+            db: {value:"",required:true}
+        },
+        label: function() {
+            return this.db;
+        }
+    });
+</script>
+
+
+<script type="text/x-red" data-template-name="sqlite">
+    <div class="form-row">
+        <label for="node-input-mydb"><i class="fa fa-database"></i> Database</label>
+        <input type="text" id="node-input-mydb">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="sqlite">
+    <p>Allows basic access to a Sqlite database. using <a href="https://github.com/gbrault/sql.js">sql.js</a></p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('sqljsdb',{
+        category: 'storage-input',
+        color:"#e97b00",
+        defaults: {
+            mydb: {type:"sqlitedb",required:true},
+            name: {value:""}
+        },
+        inputs:1,
+        outputs:1,
+        icon: "sqlite.png",
+        label: function() {
+            var dbNode = RED.nodes.node(this.mydb);
+            return this.name||(dbNode?dbNode.label():"sqlite");
+        },
+            labelStyle: function() {
+            return this.name?"node_label_italic":"";
+        }
+    });
+</script>
