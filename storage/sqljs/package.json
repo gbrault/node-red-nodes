@@ -1,24 +1,24 @@
 {
-    "name"          : "node-red-node-sqlite",
+    "name"          : "node-red-node-sqljs",
     "version"       : "0.1.2",
-    "description"   : "A sqlite node for Node-RED",
+    "description"   : "A sql.js node for Node-RED",
     "dependencies"  : {
-        "sqlite3"   : "3.1.*"
+        "sql.js"   : "0.3.*"
     },
     "repository" : {
         "type":"git",
-        "url":"https://github.com/node-red/node-red-nodes/storage/sqlite/"
+        "url":"https://github.com/node-red/node-red-nodes/storage/sqljs/"
     },
     "license": "Apache-2.0",
     "keywords": [ "node-red", "sqlite" ],
     "node-red"      : {
         "nodes"     : {
-            "sqlite": "sqlite.js"
+            "sqlite": "sql.js"
         }
     },
     "author": {
-        "name": "Dave Conway-Jones",
-        "email": "ceejay@vnet.ibm.com",
+        "name": "Gilbert Brault",
+        "email": "gbrault@seadev.org",
         "url": "http://nodered.org"
     }
 }
